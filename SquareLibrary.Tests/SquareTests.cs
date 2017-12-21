@@ -8,7 +8,7 @@ namespace SquareLibrary.Tests
     public class SquareTests
     {
         [TestMethod]
-        public void GetSquareOfRightTriangle_345_6Expected()
+        public void GetSquareOfRightTriangle_345_6returned()
         {
             double expected = 6;
 
@@ -18,7 +18,7 @@ namespace SquareLibrary.Tests
         }
 
         [TestMethod]
-        public void GetSquareOfRightTriangle_453_6Expected()
+        public void GetSquareOfRightTriangle_453_6returned()
         {
             double expected = 6;
 
@@ -27,18 +27,25 @@ namespace SquareLibrary.Tests
             Assert.AreEqual(expected, result);
         }
 
+        [ExpectedException(typeof(ArgumentOutOfRangeException), "Exception was not thrown")]
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void GetSquareOfRightTriangle_045_ExpectedException()
         {
             double result = Square.GetSquareOfRightTriangle(0, 4, 5);
         }
 
+        [ExpectedException(typeof(ArgumentException), "Exception was not thrown")]
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void GetSquareOfRightTriangle_123_ExpectedException()
         {
             double result = Square.GetSquareOfRightTriangle(1, 2, 3);
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Exception was not thrown")]
+        [TestMethod]
+        public void GetSquareOfRightTriangle_133_ExpectedException()
+        {
+            double result = Square.GetSquareOfRightTriangle(1, 3, 3);
         }
     }
 }

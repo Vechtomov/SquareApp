@@ -28,8 +28,9 @@ namespace SquareLibrary
             }
             
             SetCathetuses(ref a, ref b, ref c);
+
             if(!CheckPithagoreanTheorem(a, b, c)) {
-                throw new ArgumentException("Not a right triangle");
+                throw new ArgumentException("Sides of the triangle doesn't satisfy the Pithagoream theorem");
             }
 
             return a * b / 2;
@@ -39,9 +40,11 @@ namespace SquareLibrary
         {
             double[] sides = { a, b, c };
             Array.Sort(sides);
-            if(sides[2] == sides[1]) {
-                throw new ArgumentException("Not a right triangle");
+
+            if (sides[2] == sides[1]) {
+                throw new ArgumentException("In a right triangle there can be only one largest side");
             }
+
             a = sides[0];
             b = sides[1];
             c = sides[2];

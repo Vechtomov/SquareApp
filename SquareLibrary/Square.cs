@@ -30,7 +30,7 @@ namespace SquareLibrary
             SetCathetuses(ref a, ref b, ref c);
 
             if(!CheckPithagoreanTheorem(a, b, c)) {
-                throw new ArgumentException("Sides of the triangle doesn't satisfy the Pithagoream theorem");
+                throw new ArgumentException("Sides of the triangle doesn't satisfy the Pithagorean theorem");
             }
 
             return a * b / 2;
@@ -50,9 +50,14 @@ namespace SquareLibrary
             c = sides[2];
         }
 
-        private static bool CheckPithagoreanTheorem(double firstCathetus, double secondCathteus, double gipotenuse)
+        private static bool CheckPithagoreanTheorem(double firstCathetus, double secondCathteus, double hypotenuse)
         {
-            return Math.Pow(firstCathetus, 2.0) + Math.Pow(secondCathteus, 2.0) == Math.Pow(gipotenuse, 2.0);
+            double firstCathetusSquare = Math.Pow(firstCathetus, 2.0);
+            double secondCathetusSquare = Math.Pow(secondCathteus, 2.0);
+            double hypotenuseSquare = Math.Pow(hypotenuse, 2.0);
+            double sum = firstCathetusSquare + secondCathetusSquare;
+
+            return Math.Abs(sum - hypotenuseSquare) < 0.0000001;
         }
     }
 }

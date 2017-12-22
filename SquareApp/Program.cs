@@ -3,12 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SquareLibrary;
 
 namespace SquareApp
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            CheckValue();
+        }
+
+        private static void CheckValue()
+        {
+            double a = 0.3;
+            double b = 0.4;
+            double c = 0.5;
+
+            Console.WriteLine(Square.GetSquareOfRightTriangle(a, b, c));
+        }
+
+        private static void Test()
         {
             while (true) {
                 try {
@@ -20,7 +35,7 @@ namespace SquareApp
                     b = Double.Parse(line.Split(' ')[1]);
                     c = Double.Parse(line.Split(' ')[2]);
 
-                    Console.WriteLine(SquareLibrary.Square.GetSquareOfRightTriangle(a, b, c));
+                    Console.WriteLine(Square.GetSquareOfRightTriangle(a, b, c));
                     Console.WriteLine();
                 }
                 catch (Exception ex) {
